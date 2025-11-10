@@ -3,6 +3,7 @@ import Articoli from "./assets/components/Articoli";
 
 function App() {
   const [articles, setArticles] = useState(Articoli);
+  const [newTitle, setNewTitle] = useState("");
   return (
     <>
       <div>
@@ -12,6 +13,17 @@ function App() {
             <li key={article.id}>{article.title}</li>
           ))}
         </ul>
+
+        <hr />
+
+        <h2>Aggiungi un nuovo articolo</h2>
+        <input
+          type="text"
+          placeholder="Titolo articolo"
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+        />
+        <button>Aggiungi</button>
       </div>
     </>
   );
