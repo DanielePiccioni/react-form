@@ -4,6 +4,18 @@ import Articoli from "./assets/components/Articoli";
 function App() {
   const [articles, setArticles] = useState(Articoli);
   const [newTitle, setNewTitle] = useState("");
+  const handleAddArticle = () => {
+    if (newTitle === "") return;
+
+    const newArticle = {
+      id: Date.now(),
+      title: newTitle,
+    };
+    setArticles([...articles, newArticle]);
+    setNewTitle("");
+  };
+
+
   return (
     <>
       <div>
@@ -23,7 +35,7 @@ function App() {
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
         />
-        <button>Aggiungi</button>
+        <button onClick={handleAddArticle}>Aggiungi</button>
       </div>
     </>
   );
